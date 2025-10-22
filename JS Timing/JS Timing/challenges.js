@@ -10,13 +10,7 @@ function Hello() {
     console.log("Hello!");
 }
 
-let id =setInterval(Hello, 2000);
-clearInterval(id);
-
-function stopInterval() {
-    clearInterval(id);
-    console.log("Stopped it cold!");
-}
+setTimeout(Hello, 1000);
 
 // -----------------------------------------------
 // Challenge 2: Countdown
@@ -42,7 +36,9 @@ function One() {
 
 let id1= setInterval(One, 5000);
 
-
+setTimeout(Three, 1000);
+setTimeout(Two, 2000);
+setTimeout(One, 3000)
 
 
 
@@ -51,8 +47,17 @@ let id1= setInterval(One, 5000);
 // Use setInterval to log "Still going..." every second.
 // After 5 seconds, stop the interval using clearInterval.
 
+function tick() {
+    console.log("Still going!");
+}
 
+let tickId= setInterval(tick, 1000);
+function stoptickID() {
+    clearInterval (tickId);
+    console.log("BEEEEEEEP!")
+}
 
+setTimeout(stoptickID, 5000);
 
 
 
@@ -62,7 +67,12 @@ let id1= setInterval(One, 5000);
 // Create a <div> in your HTML file with id="box". Put some text in it.
 // After 3 seconds, change its background color to blue using setTimeout.
 
+function changeBoxToBlue() {
+    let box = document.getElementById("box");
+    box.style.backgroundColor = "#0000ff";
+}
 
+setTimeout(changeBoxToBlue, 3000);
 
 
 
@@ -73,8 +83,26 @@ let id1= setInterval(One, 5000);
 // between red and white every half second (500 ms).
 // Add a setTimeout to stop the flashing after 5 seconds... or when you click on it!
 
+let isRed = false;
+
+function toggleColorOfBox2() {
+    let box = document.getElementById("box2");
+    
+    if(isRed) {
+        box.style.backgroundColor = "#ffffff";
+    } else {
+        box.style.backgroundColor = "#ff3355";
+    }
+        
+    isRed = !isRed;
+    
+    console.log("Changed!")
 
 
+
+}
+
+setInterval(toggleColorOfBox, 500);
 
 
 
